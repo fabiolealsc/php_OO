@@ -30,7 +30,7 @@ $pessoa2 = new Funcionario(
         "Sao João",
         "96840600"
     ),
-    '',
+    'DFF',
     0
 );
 $pessoa3 = new Cliente(
@@ -98,4 +98,10 @@ var_dump($pessoa4);
 var_dump($pessoa5);
 var_dump($pessoa6);
 var_dump(Pessoa::getPeopleCount());
+echo $pessoa1->__toString();
+echo $pessoa2->__toString();
+echo $pessoa3->__toString();
+echo $pessoa4->__toString();
+echo $pessoa5->__toString();
+echo $pessoa6->__toString();
 echo '</pre>';

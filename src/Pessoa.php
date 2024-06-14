@@ -202,4 +202,6 @@ abstract class Pessoa
     {
         return $this->desconto;
     }
+
+    abstract public function __toString(): string;
 }

@@ -114,4 +114,25 @@ class Cliente extends Pessoa
 
         return $this;
     }
+
+    /**
+     * Retorna informações do Cliente
+     *
+     * @return string
+     * 
+     * @author     Fabio Leal Schmitz 
+     * @see       {@link https://github.com/fabiolealsc} 
+     */
+    public function __toString(): string
+    {
+        return
+            "<p>Nome: " . $this->getNome() .
+            "<br>Idade: " . $this->getIdade() . " anos" .
+            "<br>Endereço : " . $this->getEndereco()->getNomeLogradouro() .  ", " .
+            $this->getEndereco()->getNumero() . " - " .
+            $this->getEndereco()->getBairro() .
+            "<br>Data de Nascimento: " . $this->dataNascimento .
+            "<br>Renda: R$" . $this->renda .
+            "</p>";
+    }
 }

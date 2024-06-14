@@ -124,4 +124,23 @@ class Funcionario extends Pessoa
 
         return $this;
     }
+
+    /**
+     * Retorna informações do funcionario
+     *
+     * @return string
+     * 
+     * @author     Fabio Leal Schmitz 
+     * @see       {@link https://github.com/fabiolealsc} 
+     */
+    public function __toString(): string
+    {
+        return
+            "<p>Nome: " . $this->getNome() .
+            "<br>Idade: " . $this->getIdade() . " anos" .
+            "<br>Endereço : " . $this->getEndereco()->getNomeLogradouro() . ", " . $this->getEndereco()->getNumero() . " - " . $this->getEndereco()->getBairro() .
+            "<br>Cargo: " . $this->cargo .
+            "<br>Salário: R$" . $this->salario .
+            "</br>";
+    }
 }
