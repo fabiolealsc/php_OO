@@ -91,13 +91,13 @@ $pessoa6 = new Funcionario(
 );
 
 echo '<pre>';
-var_dump($pessoa1);
-var_dump($pessoa2);
-var_dump($pessoa3);
-var_dump($pessoa4);
-var_dump($pessoa5);
-var_dump($pessoa6);
-var_dump(Pessoa::getPeopleCount());
+//var_dump($pessoa1);
+//var_dump($pessoa2);
+//var_dump($pessoa3);
+//var_dump($pessoa4);
+//var_dump($pessoa5);
+//var_dump($pessoa6);
+//var_dump(Pessoa::getPeopleCount());
 echo $pessoa1->__toString();
 echo $pessoa2->__toString();
 echo $pessoa3->__toString();

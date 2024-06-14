@@ -26,26 +26,26 @@ abstract class Pessoa
     /**
      * Nome da Pessoa
      *
-     * @access private
+     * @access protected
      * @var string
      */
-    private string $nome;
+    protected string $nome;
 
     /**
      * Idade da Pessoa
      *
-     * @access private
+     * @access protected
      * @var integer
      */
-    private int $idade;
+    protected int $idade;
 
     /**
      * Endereço da Pessoa
      * 
-     * @access private
+     * @access protected
      * @var Endereco
      */
-    private Endereco $endereco;
+    protected Endereco $endereco;
 
     /**
      * Contagem de objetos da classe instanciados

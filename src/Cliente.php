@@ -126,11 +126,11 @@ class Cliente extends Pessoa
     public function __toString(): string
     {
         return
-            "<p>Nome: " . $this->getNome() .
-            "<br>Idade: " . $this->getIdade() . " anos" .
-            "<br>Endereço : " . $this->getEndereco()->getNomeLogradouro() .  ", " .
-            $this->getEndereco()->getNumero() . " - " .
-            $this->getEndereco()->getBairro() .
+            "<p>Nome: " . $this->nome .
+            "<br>Idade: " . $this->idade . " anos" .
+            "<br>Endereço : " . $this->endereco->getNomeLogradouro() .  ", " .
+            $this->endereco->getNumero() . " - " .
+            $this->endereco->getBairro() .
             "<br>Data de Nascimento: " . $this->dataNascimento .
             "<br>Renda: R$" . $this->renda .
             "</p>";

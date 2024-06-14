@@ -39,42 +39,42 @@ class Endereco
      *
      * @var string
      */
-    private string $uf;
+    protected string $uf;
     
     /**
      * Cidade do endereço
      *
      * @var string
      */
-    private string $cidade;
+    protected string $cidade;
     
     /**
      * Nome do Logradouro do endereço
      *
      * @var string
-     */    
-    private string $nomeLogradouro;
+     */
+    protected string $nomeLogradouro;
     
     /**
      * Numero do endereço
      *
      * @var string
      */
-    private string $numero;
+    protected string $numero;
     
     /**
      * Bairro do endereço
      *
      * @var string
      */
-    private string $bairro;
+    protected string $bairro;
     
     /**
      * Cep do endereço
      *
      * @var string
      */
-    private string $cep;
+    protected string $cep;
 
     /**
      * Constroi um Endereço
