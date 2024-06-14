@@ -47,7 +47,7 @@ class Funcionario extends Pessoa
      */
     public function __construct(
         string $nome,
-        string $idade,
+        int $idade,
         Endereco $endereco,
         string $cargo,
         float $salario
@@ -106,6 +106,21 @@ class Funcionario extends Pessoa
     public function setSalario(float $salario): self
     {
         $this->salario = $salario;
+
+        return $this;
+    }
+
+    /**
+     * Muda o valor do desconto
+     *
+     * @return self
+     * 
+     * @author     Fabio Leal Schmitz 
+     * @see       {@link https://github.com/fabiolealsc} 
+     */
+    public function setDesconto(): self
+    {
+        $this->desconto = 0.10;
 
         return $this;
     }

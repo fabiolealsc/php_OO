@@ -2,7 +2,6 @@
 
 /**
  * Representa uma pessoa
- * 
  * @author Fabio Leal Schmitz
  * 
  * @property string $nome Nome da Pessoa
@@ -19,8 +18,10 @@
  * @method int getPeopleCount() Retorna o valor de peopleCount
  * @method Endereco getEndereco() Retorna endereço da Pessoa
  * @method self setEndereco(Endereco $endereco) Muda o endereço da Pessoa
+ * 
+ * @abstract
  */
-class Pessoa
+abstract class Pessoa
 {
     /**
      * Nome da Pessoa
@@ -54,6 +55,13 @@ class Pessoa
     private static int $peopleCount = 0;
 
     /**
+     * Desconto dos filhos
+     *
+     * @var float
+     */
+    protected float $desconto;
+
+    /**
      * Método que constroi uma Pessoa
      * 
      * @access public
@@ -68,6 +76,7 @@ class Pessoa
         $this->nome     = $nome;
         $this->idade    = $idade;
         $this->endereco = $endereco;
+        $this->setDesconto();
         self::$peopleCount++;
     }
 
@@ -168,5 +177,29 @@ class Pessoa
         $this->endereco = $endereco;
 
         return $this;
+    }
+
+
+    /**
+     * Muda o valor de desconto
+     *
+     * @return void
+     * 
+     * @author     Fabio Leal Schmitz 
+     * @see       {@link https://github.com/fabiolealsc} 
+     */
+    abstract protected function setDesconto(): self;
+
+    /**
+     * Retorna o desconto
+     *
+     * @return float
+     * 
+     * @author     Fabio Leal Schmitz 
+     * @see       {@link https://github.com/fabiolealsc} 
+     */
+    public function getDesconto(): float
+    {
+        return $this->desconto;
     }
 }

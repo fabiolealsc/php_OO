@@ -2,6 +2,8 @@
 
 require_once 'src/Pessoa.php';
 require_once 'src/Endereco.php';
+require_once 'src/Funcionario.php';
+require_once 'src/Cliente.php';
 
 $pessoa1 = new Funcionario(
     'Luiz',
@@ -31,7 +33,7 @@ $pessoa2 = new Funcionario(
     '',
     0
 );
-$pessoa3 = new Funcionario(
+$pessoa3 = new Cliente(
     'Thais',
     20,
     new Endereco(
@@ -42,7 +44,7 @@ $pessoa3 = new Funcionario(
         "Avenida",
         "96840660"
     ),
-    '',
+    '02/09/1994',
     0
 );
 $pessoa4 = new Funcionario(
@@ -91,5 +93,9 @@ $pessoa6 = new Funcionario(
 echo '<pre>';
 var_dump($pessoa1);
 var_dump($pessoa2);
+var_dump($pessoa3);
+var_dump($pessoa4);
+var_dump($pessoa5);
+var_dump($pessoa6);
 var_dump(Pessoa::getPeopleCount());
 echo '</pre>';
