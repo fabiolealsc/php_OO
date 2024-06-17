@@ -1,9 +1,20 @@
 <?php
 
-require_once 'src/Pessoa.php';
-require_once 'src/Endereco.php';
-require_once 'src/Funcionario.php';
-require_once 'src/Cliente.php';
+require_once('autoload.php');
+
+use Schmitz\Comercial\Model\Endereco;
+use Schmitz\Comercial\Model\Cliente;
+use Schmitz\Comercial\Model\Funcionario;
+
+
+$endereco1 = new Endereco(
+    "RS",
+    "Santa Cruz do Sul",
+    "Rua Frederico Tietze",
+    "48",
+    "Santa Vitoria",
+    "96840660"
+);
 
 $pessoa1 = new Funcionario(
     'Luiz',
@@ -89,19 +100,16 @@ $pessoa6 = new Funcionario(
     '',
     0
 );
+$pessoa1->setSenha('12345');
 
+$pessoa1->login("Luiz", '12345');
 echo '<pre>';
-//var_dump($pessoa1);
-//var_dump($pessoa2);
-//var_dump($pessoa3);
-//var_dump($pessoa4);
-//var_dump($pessoa5);
-//var_dump($pessoa6);
-//var_dump(Pessoa::getPeopleCount());
-echo $pessoa1->__toString();
+//echo $pessoa1->salario;
 echo $pessoa2->__toString();
 echo $pessoa3->__toString();
 echo $pessoa4->__toString();
 echo $pessoa5->__toString();
 echo $pessoa6->__toString();
+$endereco1->uf = 'Niko';
+echo $endereco1->uf;
 echo '</pre>';

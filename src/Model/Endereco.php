@@ -1,5 +1,9 @@
 <?php
 
+namespace Schmitz\Comercial\Model;
+
+require_once('autoload.php');
+
 
 /**
  * Representa um Endereco 
@@ -33,42 +37,43 @@
  * 
  */
 class Endereco
-{    
+{
+    use AcessoAtributos;
     /**
      * Uf do endereço
      *
      * @var string
      */
     protected string $uf;
-    
+
     /**
      * Cidade do endereço
      *
      * @var string
      */
     protected string $cidade;
-    
+
     /**
      * Nome do Logradouro do endereço
      *
      * @var string
      */
     protected string $nomeLogradouro;
-    
+
     /**
      * Numero do endereço
      *
      * @var string
      */
     protected string $numero;
-    
+
     /**
      * Bairro do endereço
      *
      * @var string
      */
     protected string $bairro;
-    
+
     /**
      * Cep do endereço
      *
@@ -107,7 +112,7 @@ class Endereco
      * Retorna o valor de UF
      * 
      * @return string
-     */ 
+     */
     public function getUf(): string
     {
         return $this->uf;
@@ -129,7 +134,7 @@ class Endereco
      * Retorna o valor de cidade
      * 
      * @return string
-     */ 
+     */
     public function getCidade(): string
     {
         return $this->cidade;
@@ -153,7 +158,7 @@ class Endereco
      * Retorna o valor de Logradouro
      * 
      * @return string
-     */ 
+     */
     public function getNomeLogradouro(): string
     {
         return $this->nomeLogradouro;
@@ -177,7 +182,7 @@ class Endereco
      * Retorna o valor de Numero
      * 
      * @return string
-     */ 
+     */
     public function getNumero(): string
     {
         return $this->numero;
@@ -201,7 +206,7 @@ class Endereco
      * Retorna o valor de Bairro
      * 
      * @return string
-     */ 
+     */
     public function getBairro(): string
     {
         return $this->bairro;
@@ -225,7 +230,7 @@ class Endereco
      * Retorna o valor de CEP
      * 
      * @return string
-     */ 
+     */
     public function getCep(): string
     {
         return $this->cep;

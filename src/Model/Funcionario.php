@@ -1,21 +1,32 @@
 <?php
 
+namespace Schmitz\Comercial\Model;
+
+require_once('autoload.php');
+
+
 /**
  * Representa um funcionario que extende da classe pessoa
  * 
  * @author Fabio Leal Schmitz
  * 
  * @property string $cargo  O cargo do funcionario
- * @property string $cargo  Salario do funcionario
+ * @property string $salario  Salario do funcionario
+ * @property string $senha Senha do usuário
  * 
  * @method string getCargo() Retorna o valor de cargo do funcionario
  * @method self setCargo(string $cargo) Muda o valor do cargo do funcionario
  * @method string getSalario() Retorna o valor do salario do funcionario
  * @method self setSalario(float $salario) Muda o valor do salario do funcionario
+ * @method self setDesconto() Muda o desconto do funcionário
+ * @method string _toString() Retorna dados do funcionário no formato de texto
+ * @method void login(string $nome, string senha) Faz a autenticação do usuário
+ * @method self setSenha(string $senha) Define a senha do usuário
  * 
  * @extends Pessoa
+ * @implements Autenticar
  */
-class Funcionario extends Pessoa
+class Funcionario extends Pessoa implements Autenticar
 {
     /**
      * O cargo do funcionario
@@ -32,6 +43,13 @@ class Funcionario extends Pessoa
      * @var float
      */
     private float $salario;
+
+    /**
+     * Senha do usuário
+     *
+     * @var string
+     */
+    private string $senha;
 
     /**
      * Constroi um funcionario
@@ -142,5 +160,39 @@ class Funcionario extends Pessoa
             "<br>Cargo: " . $this->cargo .
             "<br>Salário: R$" . $this->salario .
             "</br>";
+    }
+
+    /**
+     * Função de login
+     *
+     * @param string $nome Nome do usuário
+     * @param string $senha Senha do usuário
+     * 
+     * @return void
+     * 
+     * @author     Fabio Leal Schmitz 
+     * @see       {@link https://github.com/fabiolealsc} 
+     */
+    public function login(string $nome, string $senha): void
+    {
+        if ($this->nome == $nome && $this->senha == $senha) {
+            echo "<p>[ LOGIN: Usuário: $this->nome autencicado com sucesso! ]</p>";
+        } else {
+            echo "<p>[ Erro! Usuário ou senha incorreto. ]</p>";
+        }
+    }
+
+    /**
+     * Muda a senha do usuário
+     *
+     * @param  string  $senha  Senha do usuário
+     *
+     * @return  self
+     */
+    public function setSenha(string $senha): self
+    {
+        $this->senha = $senha;
+
+        return $this;
     }
 }

@@ -1,5 +1,10 @@
 <?php
 
+namespace Schmitz\Comercial\Model;
+
+require_once('autoload.php');
+
+
 /**
  * Representa uma pessoa
  * @author Fabio Leal Schmitz
@@ -20,9 +25,13 @@
  * @method self setEndereco(Endereco $endereco) Muda o endereço da Pessoa
  * 
  * @abstract
+ * 
  */
 abstract class Pessoa
 {
+
+    use AcessoAtributos;
+
     /**
      * Nome da Pessoa
      *
@@ -56,7 +65,7 @@ abstract class Pessoa
 
     /**
      * Desconto dos filhos
-     *
+     * @access protected
      * @var float
      */
     protected float $desconto;
@@ -88,7 +97,7 @@ abstract class Pessoa
      */
     public function __destruct()
     {
-        self::$peopleCount--;   
+        self::$peopleCount--;
     }
 
     /**
@@ -96,7 +105,7 @@ abstract class Pessoa
      * 
      * @access public
      * @return  string
-     */ 
+     */
     public function getNome(): string
     {
         return $this->nome;
@@ -107,7 +116,7 @@ abstract class Pessoa
      * 
      * @access public
      * @return  integer
-     */ 
+     */
     public function getIdade(): int
     {
         return $this->idade;
@@ -120,7 +129,7 @@ abstract class Pessoa
      * @param  string  $nome  Nome da Pessoa
      *
      * @return  void
-     */ 
+     */
     public function setNome(string $nome): void
     {
         $this->nome = $nome;
@@ -132,7 +141,7 @@ abstract class Pessoa
      * @param  integer  $idade  Idade da Pessoa
      *
      * @return  void
-     */ 
+     */
     public function setIdade(int $idade): void
     {
         $this->idade = $idade;
@@ -145,7 +154,7 @@ abstract class Pessoa
      * @static
      * 
      * @return int
-     */ 
+     */
     public static function getPeopleCount(): int
     {
         return self::$peopleCount;
