@@ -2,7 +2,7 @@
 
 namespace Schmitz\Comercial\Dominio\Repository;
 
-use Schmitz\Comercial\Model\Produto;
+use Schmitz\Comercial\Dominio\Model\Produto;
 
 /**
  * Interface que define os métodos de PDO de produtos.

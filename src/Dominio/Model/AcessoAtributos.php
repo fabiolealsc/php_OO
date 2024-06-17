@@ -1,6 +1,6 @@
 <?php
 
-namespace Schmitz\Comercial\Model;
+namespace Schmitz\Comercial\Dominio\Model;
 
 /**
  * Define metodo de acesso à atributos sensíveis à classe

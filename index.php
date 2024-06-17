@@ -2,7 +2,7 @@
 
 use Schmitz\Comercial\Infra\Persistence\CriadorConexao;
 use Schmitz\Comercial\Infra\Repository\PdoRepositoryProduto;
-use Schmitz\Comercial\Model\Produto;
+use Schmitz\Comercial\Dominio\Model\Produto;
 
 require_once('autoload.php');
 

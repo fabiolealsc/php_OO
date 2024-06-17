@@ -1,6 +1,6 @@
 <?php
 
-namespace Schmitz\Comercial\Model;
+namespace Schmitz\Comercial\Dominio\Model;
 
 /**
  * Classe que representa um Cliente extend Pessoa

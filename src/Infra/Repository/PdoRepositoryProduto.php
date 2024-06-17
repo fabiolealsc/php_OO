@@ -2,7 +2,7 @@
 
 namespace Schmitz\Comercial\Infra\Repository;
 
-use Schmitz\Comercial\Model\Produto;
+use Schmitz\Comercial\Dominio\Model\Produto;
 use Schmitz\Comercial\Dominio\Repository\RepositorioProdutos;
 use PDO;
 

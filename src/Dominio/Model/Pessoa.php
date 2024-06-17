@@ -1,6 +1,6 @@
 <?php
 
-namespace Schmitz\Comercial\Model;
+namespace Schmitz\Comercial\Dominio\Model;
 
 require_once('autoload.php');
 
