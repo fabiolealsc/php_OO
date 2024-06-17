@@ -1,11 +1,36 @@
 <?php
 
+use Schmitz\Comercial\Infra\Persistence\CriadorConexao;
+use Schmitz\Comercial\Infra\Repository\PdoRepositoryProduto;
+use Schmitz\Comercial\Model\Produto;
+
 require_once('autoload.php');
 
-use Schmitz\Comercial\Model\Endereco;
+
+echo '<pre>';
+
+//$repositorio = new PdoRepositoryProduto(CriadorConexao::criarConexao());
+//var_dump($repositorio);
+var_dump($produto1 = new Produto(2, 'Table', 3000.00));
+
+echo '</pre>';
+
+//$repositorio->readProduto($produto1);
+
+/*echo CriadorConexao::criarTabela(
+    'produtos',
+    [
+        'ID INTEGER PRIMARY KEY AUTOINCREMENT',
+        'nomeProduto VARCHAR(255)',
+        'precoProduto DECIMAL(10, 2)'
+    ]
+);*/
+
+//echo CriadorConexao::deleteTabela('produtos');
+
+/*use Schmitz\Comercial\Model\Endereco;
 use Schmitz\Comercial\Model\Cliente;
 use Schmitz\Comercial\Model\Funcionario;
-
 
 $endereco1 = new Endereco(
     "RS",
@@ -112,4 +137,4 @@ echo $pessoa5->__toString();
 echo $pessoa6->__toString();
 $endereco1->uf = 'Niko';
 echo $endereco1->uf;
-echo '</pre>';
+echo '</pre>';*/
