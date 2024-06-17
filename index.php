@@ -9,11 +9,36 @@ require_once('autoload.php');
 
 echo '<pre>';
 
+//echo CriadorConexao::dropSequenceIds('produtos');
+/*
+$produto1 = new Produto(NULL, 'Tablet', 3000.00);
+$produto2 = new Produto(NULL, 'Notebook', 4000.00);
+$produto3 = new Produto(NULL, 'Mouse', 150.00);
+$produto4 = new Produto(NULL, 'Teclado Mecânico', 450.00);
+$produto5 = new Produto(NULL, 'Fone de ouvido', 500.00);
+$produto6 = new Produto(NULL, 'Cadeira', 1200.00);
+$produto7 = new Produto(NULL, 'Mouse Pad', 100.00);
+$produto8 = new Produto(NULL, 'JoySticks', 200.00);
+$produto9 = new Produto(NULL, 'Monitor', 5000.00);
+
+*/ $repositorio = new PdoRepositoryProduto(CriadorConexao::criarConexao());/*
+
+$repositorio->save($produto1);
+$repositorio->save($produto2);
+$repositorio->save($produto3);
+$repositorio->save($produto4);
+$repositorio->save($produto5);
+$repositorio->save($produto6);
+$repositorio->save($produto7);
+$repositorio->save($produto8);
+$repositorio->save($produto9);
+*/
+$repositorio->allProdutos();
+echo '</pre>';
+
+
 //$repositorio = new PdoRepositoryProduto(CriadorConexao::criarConexao());
 //var_dump($repositorio);
-var_dump($produto1 = new Produto(2, 'Table', 3000.00));
-
-echo '</pre>';
 
 //$repositorio->readProduto($produto1);
 
@@ -24,7 +49,7 @@ echo '</pre>';
         'nomeProduto VARCHAR(255)',
         'precoProduto DECIMAL(10, 2)'
     ]
-);*/
+);
 
 //echo CriadorConexao::deleteTabela('produtos');
 

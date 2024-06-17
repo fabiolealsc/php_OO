@@ -76,4 +76,14 @@ class CriadorConexao
         $query = "DROP TABLE IF EXISTS $nomeTabela";
         return $pdo->prepare($query)->execute();
     }
+
+    public static function dropSequenceIds(mixed $nomeTabela)
+    {
+        $pdo = new PDO('sqlite:database.sqlite');
+
+        $query = "UPDATE sqlite_sequence SET seq = 0 WHERE name = '" . $nomeTabela . "'";
+        $pdo->prepare($query)->execute();
+        $query = "DROP TABLE '" . $nomeTabela . "'";
+        return $pdo->prepare($query)->execute();
+    }
 }

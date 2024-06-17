@@ -4,7 +4,6 @@ namespace Schmitz\Comercial\Infra\Repository;
 
 use Schmitz\Comercial\Model\Produto;
 use Schmitz\Comercial\Dominio\Repository\RepositorioProdutos;
-use Schmitz\Comercial\Infra\Persistence;
 use PDO;
 
 class PdoRepositoryProduto implements RepositorioProdutos
@@ -65,7 +64,7 @@ class PdoRepositoryProduto implements RepositorioProdutos
      */
     public function save(Produto $produto): bool
     {
-        if ($produto->getIdProduto() == null) {
+        if ($produto->getIdProduto() == NULL) {
             return $this->createProduto($produto);
         }
         return $this->updateProduto($produto);
@@ -133,9 +132,9 @@ class PdoRepositoryProduto implements RepositorioProdutos
         $sqlUpdate = "UPDATE produtos SET nomeProduto = :nome, precoProduto = :preco WHERE ID = :id;";
         $stmt = $this->conexao->prepare($sqlUpdate);
         $stmt->bindValue(':nome', $produto->getNomeProduto(), PDO::PARAM_STR);
-        $stmt->bindValue(':precoProduto', $produto->getPrecoProduto(), PDO::PARAM_STR);
+        $stmt->bindValue(':preco', $produto->getPrecoProduto(), PDO::PARAM_STR);
         $stmt->bindValue(':id', $produto->getIdProduto(), PDO::PARAM_INT);
-
+        
         return $stmt->execute();
     }
 
@@ -173,7 +172,8 @@ class PdoRepositoryProduto implements RepositorioProdutos
     {
         $listaDadosProdutos = $stat->fetchAll(PDO::FETCH_ASSOC);
         $listaProdutos = [];
-        echo "<table>";
+
+        echo "<table border='1'><thead><th>ID</th><th>Nome do Produto</th><th>Preço do Produto</th></thead><tbody>";
         foreach ($listaDadosProdutos as $dadosProduto) {
             $listaProduto[] = new Produto(
                 $dadosProduto['ID'],
@@ -189,11 +189,12 @@ class PdoRepositoryProduto implements RepositorioProdutos
                         {$dadosProduto['nomeProduto']}
                     </td>
                     <td align='right'>
-                        " . number_format($dadosProduto['precoProduto'], 2, ',', '.') . "
+                        R$ " . number_format($dadosProduto['precoProduto'], 2, ',', '.') . "
                     </td>
+                </tr>
             ";
         }
-        echo "</table>";
+        echo "</tbody></table>";
 
         return $listaProdutos;
     }
