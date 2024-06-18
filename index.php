@@ -7,7 +7,7 @@ use Schmitz\Comercial\Dominio\Model\Produto;
 require_once('autoload.php');
 
 
-echo '<pre>';
+//echo '<pre>';
 
 //echo CriadorConexao::dropSequenceIds('produtos');
 /*
@@ -19,9 +19,11 @@ $produto5 = new Produto(NULL, 'Fone de ouvido', 500.00);
 $produto6 = new Produto(NULL, 'Cadeira', 1200.00);
 $produto7 = new Produto(NULL, 'Mouse Pad', 100.00);
 $produto8 = new Produto(NULL, 'JoySticks', 200.00);
-$produto9 = new Produto(NULL, 'Monitor', 5000.00);
+$produto10 = new Produto(NULL, 'Hub USB', 120.00);
 
-*/ $repositorio = new PdoRepositoryProduto(CriadorConexao::criarConexao());/*
+*/
+$repositorio = new PdoRepositoryProduto(CriadorConexao::criarConexao());
+/*
 
 $repositorio->save($produto1);
 $repositorio->save($produto2);
@@ -31,10 +33,10 @@ $repositorio->save($produto5);
 $repositorio->save($produto6);
 $repositorio->save($produto7);
 $repositorio->save($produto8);
-$repositorio->save($produto9);
+$repositorio->save($produto10);
 */
 $repositorio->allProdutos();
-echo '</pre>';
+//echo '</pre>';
 
 
 //$repositorio = new PdoRepositoryProduto(CriadorConexao::criarConexao());

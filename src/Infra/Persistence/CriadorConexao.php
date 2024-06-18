@@ -28,6 +28,8 @@ class CriadorConexao
         try {
             $pdo = new PDO('sqlite:database.sqlite');
             $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+            $st = 'PRAGMA foreign_keys=on';
+            $pdo->query($st);
             return $pdo;
         } catch (PDOException $exception) {
             echo 'ERROR: ' . $exception->getMessage();
@@ -77,7 +79,18 @@ class CriadorConexao
         return $pdo->prepare($query)->execute();
     }
 
-    public static function dropSequenceIds(mixed $nomeTabela)
+    /**
+     * Método que destroi as tabelas e zera o sequence ids dos ids 
+     * das tabelas.
+     *
+     * @param string $nomeTabela
+     * 
+     * @return bool
+     * 
+     * @author     Fabio Leal Schmitz 
+     * @see       {@link https://github.com/fabiolealsc} 
+     */
+    public static function dropSequenceIds(string $nomeTabela): bool
     {
         $pdo = new PDO('sqlite:database.sqlite');
 
