@@ -2,6 +2,8 @@
 
 namespace Schmitz\Comercial\Dominio\Model;
 
+use DateTimeInterface;
+
 require_once('autoload.php');
 
 
@@ -55,7 +57,7 @@ class Funcionario extends Pessoa implements Autenticar
      * Constroi um funcionario
      *
      * @param string $nome Nome da pessoa
-     * @param string $idade Idade da pessoa
+     * @param DateTimeInterface $dataNascimento Idade da pessoa
      * @param Endereco $endereco Endereço da pessoa
      * @param string $cargo O cargo do funcionario
      * @param float $salario Salario do funcionario
@@ -64,15 +66,17 @@ class Funcionario extends Pessoa implements Autenticar
      * @return void
      */
     public function __construct(
+        ?int $id,
         string $nome,
-        int $idade,
+        DateTimeInterface $dataNascimento,
         Endereco $endereco,
         string $cargo,
         float $salario
     ) {
         parent::__construct(
+            $id,
             $nome,
-            $idade,
+            $dataNascimento,
             $endereco
         );
         $this->cargo = $cargo;
@@ -155,7 +159,7 @@ class Funcionario extends Pessoa implements Autenticar
     {
         return
             "<p>Nome: " . $this->nome .
-            "<br>Idade: " . $this->idade . " anos" .
+        "<br>Idade: " . $this->idade() . " anos" .
             "<br>Endereço : " . $this->endereco->getNomeLogradouro() . ", " . $this->endereco->getNumero() . " - " . $this->endereco->getBairro() .
             "<br>Cargo: " . $this->cargo .
             "<br>Salário: R$" . $this->salario .

@@ -19,9 +19,10 @@ require_once('autoload.php');
  * @method void _construct(string $nome, int $dataNascimento, Endereco $endereco) Método que constroi uma Pessoa
  * @method void _destruct() Método chamado quando o objeto é destruido na memória (Diminui a quantdataNascimento do contador de objeto)
  * @method string getNome() Retorna nome da Pessoa
- * @method string getdataNascimento() Retorna dataNascimento da Pessoa
+ * @method DateTimeInterface getdataNascimento() Retorna dataNascimento da Pessoa
  * @method self setNome(string $nome) Muda nome da Pessoa
  * @method self setdataNascimento(string $dataNascimento) Muda dataNascimento da Pessoa
+ * @method int idade() Faz a diferença entre a data atual e a data de nascimento do objeto, retornando a idada
  * @method int getPeopleCount() Retorna o valor de peopleCount
  * @method Endereco getEndereco() Retorna endereço da Pessoa
  * @method self setEndereco(Endereco $endereco) Muda o endereço da Pessoa
@@ -34,6 +35,13 @@ abstract class Pessoa
 
     use AcessoAtributos;
 
+    /**
+     * ID da pessoa
+     *
+     * @var int|null
+     */
+    protected ?int $id;
+    
     /**
      * Nome da Pessoa
      *
@@ -82,7 +90,7 @@ abstract class Pessoa
      * @staticvar $peopleCount Contagem de objetos da classe instanciados
      * @return void
      */
-    public function __construct(string $nome, DateTimeInterface $dataNascimento, Endereco $endereco)
+    public function __construct(?int $id, string $nome, DateTimeInterface $dataNascimento, Endereco $endereco)
     {
         $this->nome     = $nome;
         $this->dataNascimento    = $dataNascimento;
@@ -119,7 +127,7 @@ abstract class Pessoa
      * @access public
      * @return  DateTimeInterface
      */
-    public function getdataNascimento(): DateTimeInterface
+    public function getDataNascimento(): DateTimeInterface
     {
         return $this->dataNascimento;
     }
@@ -142,11 +150,26 @@ abstract class Pessoa
      * @access public
      * @param  integer  $dataNascimento  dataNascimento da Pessoa
      *
-     * @return  void
+     * @return  self
      */
-    public function setdataNascimento(DateTimeInterface $dataNascimento): void
+    public function setDataNascimento(DateTimeInterface $dataNascimento): self
     {
         $this->dataNascimento = $dataNascimento;
+
+        return $this;
+    }
+
+    /**
+     * Método que faz a diferença da data atual e a data de nascimento do objeto
+     *
+     * @return int
+     * 
+     * @author     Fabio Leal Schmitz 
+     * @see       {@link https://github.com/fabiolealsc} 
+     */
+    public function idade(): int
+    {
+        return $this->getDataNascimento()->diff(new \DateTimeImmutable())->y;
     }
 
     /**

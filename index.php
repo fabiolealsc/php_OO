@@ -1,11 +1,13 @@
 <?php
 
+use Schmitz\Comercial\Dominio\Model\Endereco;
+use Schmitz\Comercial\Dominio\Model\Funcionario;
 use Schmitz\Comercial\Infra\Persistence\CriadorConexao;
 use Schmitz\Comercial\Infra\Repository\PdoRepositoryProduto;
 use Schmitz\Comercial\Dominio\Model\Produto;
 
 require_once('autoload.php');
-
+//require_once('migrations.php');
 
 //echo '<pre>';
 
@@ -22,7 +24,9 @@ $produto8 = new Produto(NULL, 'JoySticks', 200.00);
 $produto10 = new Produto(NULL, 'Hub USB', 120.00);
 
 */
-$repositorio = new PdoRepositoryProduto(CriadorConexao::criarConexao());
+//$repositorio = new PdoRepositoryProduto(CriadorConexao::criarConexao());
+
+
 /*
 
 $repositorio->save($produto1);
@@ -35,7 +39,7 @@ $repositorio->save($produto7);
 $repositorio->save($produto8);
 $repositorio->save($produto10);
 */
-$repositorio->allProdutos();
+//$repositorio->allProdutos();
 //echo '</pre>';
 
 
@@ -44,16 +48,7 @@ $repositorio->allProdutos();
 
 //$repositorio->readProduto($produto1);
 
-/*echo CriadorConexao::criarTabela(
-    'produtos',
-    [
-        'ID INTEGER PRIMARY KEY AUTOINCREMENT',
-        'nomeProduto VARCHAR(255)',
-        'precoProduto DECIMAL(10, 2)'
-    ]
-);
 
-//echo CriadorConexao::deleteTabela('produtos');
 
 /*use Schmitz\Comercial\Model\Endereco;
 use Schmitz\Comercial\Model\Cliente;
@@ -69,8 +64,9 @@ $endereco1 = new Endereco(
 );
 
 $pessoa1 = new Funcionario(
+    NULL,
     'Luiz',
-    60,
+    new DateTime('02-09-1994'),
     new Endereco(
         "RS",
         "Santa Cruz do Sul",
@@ -81,7 +77,7 @@ $pessoa1 = new Funcionario(
     ),
     'Desenvolvedor',
     2100.00
-);
+);/*
 $pessoa2 = new Funcionario(
     'Pedro',
     90,
@@ -156,8 +152,8 @@ $pessoa1->setSenha('12345');
 
 $pessoa1->login("Luiz", '12345');
 echo '<pre>';
-//echo $pessoa1->salario;
-echo $pessoa2->__toString();
+//echo $pessoa1->salario;*/
+echo $pessoa1->__toString();/*
 echo $pessoa3->__toString();
 echo $pessoa4->__toString();
 echo $pessoa5->__toString();

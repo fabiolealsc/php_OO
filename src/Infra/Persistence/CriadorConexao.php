@@ -57,7 +57,7 @@ class CriadorConexao
 
         // Montar e executar a query SQL para criar a tabela
         $query = "CREATE TABLE IF NOT EXISTS $nomeTabela ($columns)";
-
+        //echo $query;
         return $pdo->query($query);
     }
 
@@ -99,4 +99,6 @@ class CriadorConexao
         $query = "DROP TABLE '" . $nomeTabela . "'";
         return $pdo->prepare($query)->execute();
     }
+
+    
 }
