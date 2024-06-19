@@ -1,8 +1,10 @@
 <?php
 
+use Schmitz\Comercial\Dominio\Model\Cliente;
 use Schmitz\Comercial\Dominio\Model\Endereco;
 use Schmitz\Comercial\Dominio\Model\Funcionario;
 use Schmitz\Comercial\Infra\Persistence\CriadorConexao;
+use Schmitz\Comercial\Infra\Repository\PdoRepositoryCliente;
 use Schmitz\Comercial\Infra\Repository\PdoRepositoryProduto;
 use Schmitz\Comercial\Dominio\Model\Produto;
 
@@ -24,7 +26,7 @@ $produto8 = new Produto(NULL, 'JoySticks', 200.00);
 $produto10 = new Produto(NULL, 'Hub USB', 120.00);
 
 */
-//$repositorio = new PdoRepositoryProduto(CriadorConexao::criarConexao());
+$repositorio = new PdoRepositoryCliente(CriadorConexao::criarConexao());
 
 
 /*
@@ -92,9 +94,9 @@ $pessoa2 = new Funcionario(
     'DFF',
     0
 );
-$pessoa3 = new Cliente(
+*/ $pessoa3 = new Cliente(
+    NULL,
     'Thais',
-    20,
     new Endereco(
         "RS",
         "Santa Cruz do Sul",
@@ -103,9 +105,12 @@ $pessoa3 = new Cliente(
         "Avenida",
         "96840660"
     ),
-    '02/09/1994',
-    0
+    new DateTime('1994-09-02'),
+    2000.00,
 );
+$repositorio->save($pessoa3);
+
+/*
 $pessoa4 = new Funcionario(
     'Lucas',
     53,
@@ -152,8 +157,8 @@ $pessoa1->setSenha('12345');
 
 $pessoa1->login("Luiz", '12345');
 echo '<pre>';
-//echo $pessoa1->salario;*/
-echo $pessoa1->__toString();/*
+//echo $pessoa1->salario;
+echo $pessoa1->__toString();
 echo $pessoa3->__toString();
 echo $pessoa4->__toString();
 echo $pessoa5->__toString();

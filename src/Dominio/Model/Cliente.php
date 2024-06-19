@@ -14,7 +14,7 @@ class Cliente extends Pessoa
      *
      * @var DateTimeInterface
      */
-    private DateTimeInterface $dataNascimento;
+    protected DateTimeInterface $dataNascimento;
 
     /**
      * Renda do cliente
@@ -135,7 +135,7 @@ class Cliente extends Pessoa
             "<br>Endereço : " . $this->endereco->getNomeLogradouro() .  ", " .
             $this->endereco->getNumero() . " - " .
             $this->endereco->getBairro() .
-            "<br>Data de Nascimento: " . $this->dataNascimento .
+        "<br>Data de Nascimento: " . $this->dataNascimento->format('Y-m-d') .
             "<br>Renda: R$" . $this->renda .
             "</p>";
     }

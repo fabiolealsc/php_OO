@@ -40,7 +40,7 @@ abstract class Pessoa
      *
      * @var int|null
      */
-    protected ?int $id;
+    public ?int $id;
     
     /**
      * Nome da Pessoa
@@ -108,6 +108,10 @@ abstract class Pessoa
     public function __destruct()
     {
         self::$peopleCount--;
+    }
+    public function getId(): int
+    {
+        return $this->id;
     }
 
     /**

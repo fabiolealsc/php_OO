@@ -41,7 +41,7 @@ class PdoRepositoryProduto implements RepositorioProdutos
      * @author     Fabio Leal Schmitz 
      * @see       {@link https://github.com/fabiolealsc} 
      */
-    public function allProdutos(): array
+    public function list(): array
     {
         $sqlConsulta = "SELECT * FROM produtos";
         $stmt = $this->conexao->query($sqlConsulta);
