@@ -9,7 +9,7 @@ use Schmitz\Comercial\Dominio\Model\Produto;
  */
 interface RepositorioProdutos
 {
-    public function allProdutos(): array;
+    public function list(): array;
     public function save(Produto $produto): bool;
     public function createProduto(Produto $produto): bool;
     public function readProduto(Produto $produto): array;

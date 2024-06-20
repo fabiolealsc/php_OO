@@ -41,7 +41,7 @@ class PdoRepositoryProduto implements RepositorioProdutos
      * @author     Fabio Leal Schmitz 
      * @see       {@link https://github.com/fabiolealsc} 
      */
-    public function allProdutos(): array
+    public function list(): array
     {
         $sqlConsulta = "SELECT * FROM produtos";
         $stmt = $this->conexao->query($sqlConsulta);
@@ -64,7 +64,7 @@ class PdoRepositoryProduto implements RepositorioProdutos
      */
     public function save(Produto $produto): bool
     {
-        if ($produto->getIdProduto() == NULL) {
+        if ($produto->getIdProduto() === NULL) {
             return $this->createProduto($produto);
         }
         return $this->updateProduto($produto);
