@@ -12,8 +12,15 @@ require_once('autoload.php');
 //require_once('migrations.php');
 
 //echo '<pre>';
+echo CriadorConexao::criarTabela(
+    'carros',
+    [
+        'ID',
+        'nome VARCHAR(255)'
+    ]
+);
 
-//echo CriadorConexao::dropSequenceIds('produtos');
+//echo CriadorConexao::dropSequenceIds('carros');
 /*
 $produto1 = new Produto(NULL, 'Tablet', 3000.00);
 $produto2 = new Produto(NULL, 'Notebook', 4000.00);
@@ -26,7 +33,7 @@ $produto8 = new Produto(NULL, 'JoySticks', 200.00);
 $produto10 = new Produto(NULL, 'Hub USB', 120.00);
 
 */
-$repositorio = new PdoRepositoryCliente(CriadorConexao::criarConexao());
+//$repositorio = new PdoRepositoryCliente(CriadorConexao::criarConexao());
 
 
 /*
@@ -94,7 +101,7 @@ $pessoa2 = new Funcionario(
     'DFF',
     0
 );
-*/ $pessoa3 = new Cliente(
+ $pessoa3 = new Cliente(
     NULL,
     'Thais',
     new Endereco(
