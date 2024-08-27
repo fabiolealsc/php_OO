@@ -12,13 +12,13 @@ require_once('autoload.php');
 //require_once('migrations.php');
 
 //echo '<pre>';
-/*echo CriadorConexao::criarTabela(
-    'carros',
+echo CriadorConexao::criarTabela(
+    'motos',
     [
         'ID',
         'nome VARCHAR(255)'
     ]
-);*/
+);
 
 //echo CriadorConexao::dropSequenceIds('carros');
 /*
