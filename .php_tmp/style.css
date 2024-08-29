@@ -1,0 +1,52 @@
+:root {
+    --primary-color: #F35C23;
+    --secondary-color: #1D2F41;
+}
+body{
+    background: linear-gradient(to bottom, #F35C23, #1e2f41);
+    min-height: 100vh;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: sans-serif;
+}
+
+.div-login{
+    background-color: var(--secondary-color);
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-items: center;
+    justify-content: space-between;
+    border: 2px solid var(--secondary-color);
+    width: 300px;
+    text-align: center;
+    height: 70vh;
+}
+
+.div-login p{
+    width: 70%;
+}
+
+.div-buttons{
+    display: flex;
+    gap: 30px;
+    margin-top: 20px;
+    margin-bottom: 40px;
+}
+
+a{
+    text-decoration: none;
+    color: white;
+    border: 2px solid #F35C23;
+    border-radius: 25px;
+    padding: 5px 20px;
+}
+
+a:hover{
+    background-color: #F35C23;
+    color: #1e2f41;
+}
