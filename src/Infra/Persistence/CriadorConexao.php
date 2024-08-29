@@ -26,7 +26,8 @@ class CriadorConexao
     public static function criarConexao(): PDO
     {
         try {
-            $pdo = new PDO('sqlite:database.sqlite');
+            $configs = require 'configs.php';
+            $pdo = new PDO($configs['DNS']);
             $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
             $st = 'PRAGMA foreign_keys=on';
             $pdo->query($st);
@@ -50,8 +51,8 @@ class CriadorConexao
      */
     public static function criarTabela(string $nomeTabela, array $params): bool
     {
-        $pdo = new PDO('sqlite:database.sqlite');
-
+        $configs = require 'configs.php';
+        $pdo = new PDO($configs['DNS']);
         // Construir a string de colunas corretamente
         $columns = implode(', ', $params);
 
@@ -77,7 +78,8 @@ class CriadorConexao
      */
     public static function deleteTabela(string $nomeTabela): bool
     {
-        $pdo = new PDO('sqlite:database.sqlite');
+        $configs = require 'configs.php';
+        $pdo = new PDO($configs['DNS']);
 
         $query = "DROP TABLE IF EXISTS $nomeTabela";
         return $pdo->prepare($query)->execute();
@@ -96,7 +98,8 @@ class CriadorConexao
      */
     public static function dropSequenceIds(string $nomeTabela): bool
     {
-        $pdo = new PDO('sqlite:database.sqlite');
+        $configs = require 'configs.php';
+        $pdo = new PDO($configs['DNS']);
 
         $query = "UPDATE sqlite_sequence SET seq = 0 WHERE name = '" . $nomeTabela . "'";
         $pdo->prepare($query)->execute();
